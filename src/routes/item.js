@@ -1,9 +1,9 @@
 const itemRoutes = require('express').Router();
 
-// Require Item model in our routes module
+// Requerir el modelo Item en nuestro módulo de rutas
 var Item = require('../models/Item');
 
-// Defined store route
+// Ruta de la tienda definida
 itemRoutes.route('/add').post((req, res, next) => {
     var item = new Item(req.body);
     item.save()
@@ -15,7 +15,7 @@ itemRoutes.route('/add').post((req, res, next) => {
     });
   });
 
-// Defined get data(index or listing) route
+// Ruta definida para obtener datos (índice o listado)
 itemRoutes.route('/').get(function (req, res) {
   Item.find(function (err, items){
     if(err){
@@ -27,7 +27,7 @@ itemRoutes.route('/').get(function (req, res) {
   });
 });
 
-// Defined edit route
+// Ruta de edición definida
 itemRoutes.route('/edit/:id').get(function (req, res) {
   var id = req.params.id;
   Item.findById(id, function (err, item){
@@ -35,7 +35,7 @@ itemRoutes.route('/edit/:id').get(function (req, res) {
   });
 });
 
-//  Defined update route
+// Ruta de actualización definida
 itemRoutes.route('/update/:id').post(function (req, res) {
   Item.findById(req.params.id, function(err, item) {
     if (!item)
@@ -54,7 +54,7 @@ itemRoutes.route('/update/:id').post(function (req, res) {
   });
 });
 
-// Defined delete | remove | destroy route
+// Definida la ruta de borrar | eliminar | destruir
 itemRoutes.route('/delete/:id').get(function (req, res) {
   Item.findByIdAndRemove({_id: req.params.id}, function(err, item){
         if(err) res.json(err);

@@ -20,13 +20,13 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-// routes
+// rutas
 app.use('/items', itemRoutes);
 
-// static file
+// archivo estático
 app.use(express.static(path.join(__dirname, 'public')));
 
-// start the server
+// inicio de servidor
 var server = app.listen(port, function(){
   console.log('Listening on port ' + port);
 });
