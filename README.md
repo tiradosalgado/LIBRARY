@@ -1,4 +1,13 @@
-Version 1.2.1.
-https://scaffoldhub.io
 
-This code can only be used for academic and learning purposes.
+Desarrolladores
+<br>
+Mauricio José Valeta Guzmán
+<br>
+Andrés felipe tirado salgado
+<br>
+Cristian Tarras Marquez 
+<br>
+Maira Martínez Avila
+
+<br>
+Yuranis Maria Ubarnes Salazar
