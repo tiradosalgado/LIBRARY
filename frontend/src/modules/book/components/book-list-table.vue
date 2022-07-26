@@ -10,28 +10,58 @@
     >
       <el-table-column type="selection" width="55"></el-table-column>
 
-      <el-table-column :prop="fields.images.name" align="center">
-        <template slot-scope="scope">
-          <app-list-item-image :value="presenter(scope.row, 'images')" class="book-image-list-item"></app-list-item-image>
-        </template>
+      <el-table-column :label="fields.id.label" :prop="fields.id.name" sortable="custom">
+        <template slot-scope="scope">{{ presenter(scope.row, 'id') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.isbn.label" :prop="fields.isbn.name" sortable="custom">
+      <el-table-column
+        :label="fields.isbn.label"
+        :prop="fields.isbn.name"
+        sortable="custom"
+      >
         <template slot-scope="scope">{{ presenter(scope.row, 'isbn') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.title.label" :prop="fields.title.name" sortable="custom">
+      <el-table-column
+        :label="fields.title.label"
+        :prop="fields.title.name"
+        sortable="custom"
+      >
         <template slot-scope="scope">{{ presenter(scope.row, 'title') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.author.label" :prop="fields.author.name" sortable="custom">
+      <el-table-column
+        :label="fields.author.label"
+        :prop="fields.author.name"
+        sortable="custom"
+      >
         <template slot-scope="scope">{{ presenter(scope.row, 'author') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.status.label" :prop="fields.status.name" sortable="custom">
+      <el-table-column
+        :label="fields.images.label"
+        :prop="fields.images.name"
+        align="center"
+      >
         <template slot-scope="scope">
-          <app-book-status-tag :value="scope.row.status" />
+          <app-list-item-image :value="presenter(scope.row, 'images')"></app-list-item-image>
         </template>
+      </el-table-column>
+
+      <el-table-column
+        :label="fields.status.label"
+        :prop="fields.status.name"
+        sortable="custom"
+      >
+        <template slot-scope="scope">{{ presenter(scope.row, 'status') }}</template>
+      </el-table-column>
+
+      <el-table-column
+        :label="fields.createdAt.label"
+        :prop="fields.createdAt.name"
+        sortable="custom"
+      >
+        <template slot-scope="scope">{{ presenter(scope.row, 'createdAt') }}</template>
       </el-table-column>
 
       <el-table-column :fixed="isMobile? undefined : 'right'" align="center" width="180">
@@ -80,16 +110,11 @@ import { BookModel } from '@/modules/book/book-model';
 import { mapGetters, mapActions } from 'vuex';
 import { BookPermissions } from '@/modules/book/book-permissions';
 import { i18n } from '@/i18n';
-import BookStatusTag from '@/modules/book/components/book-status-tag';
 
 const { fields } = BookModel;
 
 export default {
   name: 'app-book-list-table',
-
-  components: {
-    [BookStatusTag.name]: BookStatusTag,
-  },
 
   mounted() {
     this.doMountTable(this.$refs.table);
@@ -157,14 +182,4 @@ export default {
 </script>
 
 <style>
-.book-image-list-item {
-  border-radius: 0;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-}
-
-.book-image-list-item img {
-  object-fit: cover;
-}
 </style>

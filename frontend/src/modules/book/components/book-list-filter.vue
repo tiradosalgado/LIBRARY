@@ -10,20 +10,32 @@
   >
     <el-row>
       <el-col :lg="12" :md="16" :sm="24">
+        <el-form-item :label="fields.id.label" :prop="fields.id.name">
+          <el-input v-model="model[fields.id.name]"/>
+        </el-form-item>
+      </el-col>
+
+      <el-col style="margin-bottom: -0.41px;" :lg="12" :md="16" :sm="24">
+        <el-form-item :label="fields.createdAtRange.label" :prop="fields.createdAtRange.name">
+          <el-date-picker type="datetimerange" v-model="model[fields.createdAtRange.name]"></el-date-picker>
+        </el-form-item>
+      </el-col>
+
+      <el-col :lg="12" :md="16" :sm="24">
         <el-form-item :label="fields.isbn.label" :prop="fields.isbn.name">
-          <el-input v-model="model[fields.isbn.name]" />
+          <el-input v-model="model[fields.isbn.name]"/>
         </el-form-item>
       </el-col>
 
       <el-col :lg="12" :md="16" :sm="24">
         <el-form-item :label="fields.title.label" :prop="fields.title.name">
-          <el-input v-model="model[fields.title.name]" />
+          <el-input v-model="model[fields.title.name]"/>
         </el-form-item>
       </el-col>
 
       <el-col :lg="12" :md="16" :sm="24">
         <el-form-item :label="fields.author.label" :prop="fields.author.name">
-          <el-input v-model="model[fields.author.name]" />
+          <el-input v-model="model[fields.author.name]"/>
         </el-form-item>
       </el-col>
 

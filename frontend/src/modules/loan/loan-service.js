@@ -15,19 +15,6 @@ export class LoanService {
     return response.data;
   }
 
-  static async sendEmails(ids) {
-    const body = {
-      ids,
-    };
-
-    const response = await authAxios.post(
-      `/loan/email`,
-      body,
-    );
-
-    return response.data;
-  }
-
   static async destroyAll(ids) {
     const params = {
       ids,
@@ -45,7 +32,10 @@ export class LoanService {
       data,
     };
 
-    const response = await authAxios.post(`/loan`, body);
+    const response = await authAxios.post(
+      `/loan`,
+      body,
+    );
 
     return response.data;
   }

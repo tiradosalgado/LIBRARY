@@ -1,28 +1,29 @@
 module.exports = {
-  env: "production",
+  env: 'production',
 
   database: {
-    connection: "mongodb://mongo:27017/production",
-    transactions: false
+    connection: 'mongodb://mongo:27017/production',
+    transactions: false,
   },
 
   email: {
-    comment: "See https://nodemailer.com",
-    from: "<insert your email here>",
+    comment: 'See https://nodemailer.com',
+    from: '<insert your email here>',
     host: null,
     auth: {
       user: null,
-      pass: null
-    }
+      pass: null,
+    },
   },
 
   graphiql: false,
 
-  clientUrl: "<insert client url here>",
+  clientUrl:
+    '<insert client url here>',
 
   defaultUser: null,
 
-  uploadDir: "/storage",
+  uploadDir: '/storage',
 
-  authJwtSecret: "5fda55e7-9000-4c41-9dc0-8fbb094b2202"
+  authJwtSecret: '<place a generated random value here>',
 };

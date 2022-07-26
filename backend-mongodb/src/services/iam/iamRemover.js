@@ -101,10 +101,10 @@ module.exports = class IamRemover {
     );
   }
 
-  async _isRemovingOwnLibrarianRole() {
+  async _isRemovingOwnOwnerRole() {
     if (
       !this.data.all &&
-      !this._roles.includes(Roles.values.librarian)
+      !this._roles.includes(Roles.values.owner)
     ) {
       return false;
     }
@@ -117,9 +117,7 @@ module.exports = class IamRemover {
       this.currentUser.id,
     );
 
-    return currentUserRoles.includes(
-      Roles.values.librarian,
-    );
+    return currentUserRoles.includes(Roles.values.owner);
   }
 
   async _validate() {
@@ -138,7 +136,7 @@ module.exports = class IamRemover {
     );
     assert(this._roles, 'roles is required (can be empty)');
 
-    if (await this._isRemovingOwnLibrarianRole()) {
+    if (await this._isRemovingOwnOwnerRole()) {
       throw new ValidationError(
         this.language,
         'iam.errors.revokingOwnPermission',

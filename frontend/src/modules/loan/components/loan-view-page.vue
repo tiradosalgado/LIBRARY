@@ -48,14 +48,9 @@
 
         <app-view-item-text :label="fields.dueDate.label" :value="presenter(record, 'dueDate')"></app-view-item-text>
 
-        <app-view-item-text
-          :label="fields.returnDate.label"
-          :value="presenter(record, 'returnDate')"
-        ></app-view-item-text>
+        <app-view-item-text :label="fields.returnDate.label" :value="presenter(record, 'returnDate')"></app-view-item-text>
 
-        <app-view-item-custom :label="fields.status.label" :value="record.status">
-          <app-loan-status-tag :value="record.status" />
-        </app-view-item-custom>
+        <app-view-item-text :label="fields.status.label" :value="presenter(record, 'status')"></app-view-item-text>
 
         <app-view-item-text :label="fields.createdAt.label" :value="presenter(record, 'createdAt')"></app-view-item-text>
 
@@ -69,7 +64,6 @@
 import { mapGetters, mapActions } from 'vuex';
 import LoanViewToolbar from '@/modules/loan/components/loan-view-toolbar.vue';
 import { LoanModel } from '@/modules/loan/loan-model';
-import LoanStatusTag from '@/modules/loan/components/loan-status-tag';
 
 const { fields } = LoanModel;
 
@@ -80,7 +74,6 @@ export default {
 
   components: {
     [LoanViewToolbar.name]: LoanViewToolbar,
-    [LoanStatusTag.name]: LoanStatusTag,
   },
 
   computed: {

@@ -1,6 +1,5 @@
 const database = require('../database');
 const Schema = database.Schema;
-const moment = require('moment');
 
 const LoanSchema = new Schema(
   {
@@ -25,6 +24,15 @@ const LoanSchema = new Schema(
     returnDate: {
       type: Date,
     },
+    status: {
+      type: String,
+      enum: [
+        "inProgress",
+        "overdue",
+        "closed",
+        null
+      ],
+    },
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: 'user',
@@ -40,18 +48,6 @@ const LoanSchema = new Schema(
 
 LoanSchema.virtual('id').get(function() {
   return this._id.toHexString();
-});
-
-LoanSchema.virtual('status').get(function() {
-  if (this.returnDate) {
-    return 'closed';
-  }
-
-  if (moment().isAfter(moment(this.dueDate))) {
-    return 'overdue';
-  }
-
-  return 'inProgress';
 });
 
 LoanSchema.set('toJSON', {

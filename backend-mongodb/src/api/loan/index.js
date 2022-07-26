@@ -9,5 +9,4 @@ module.exports = (app) => {
   );
   app.get(`/loan`, require('./loanList'));
   app.get(`/loan/:id`, require('./loanFind'));
-  app.post(`/loan/email`, require('./loanEmail'));
 };

@@ -18,9 +18,7 @@ export class BookField {
 
         return {
           id: record.id,
-          label: `${record.title} - ${record.author} - ${
-            record.isbn
-          }`,
+          label: record.isbn,
         };
       },
       options,
@@ -41,7 +39,7 @@ export class BookField {
 
         return {
           id: record.id,
-          label: record.title,
+          label: record.isbn,
         };
       },
       options,

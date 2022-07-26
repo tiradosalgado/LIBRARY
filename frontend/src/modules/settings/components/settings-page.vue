@@ -29,20 +29,6 @@
         v-if="model"
       >
         <el-form-item
-          :label="fields.loanPeriodInDays.label"
-          :prop="fields.loanPeriodInDays.name"
-          :required="fields.loanPeriodInDays.required"
-        >
-          <el-col :lg="11" :md="16" :sm="24">
-            <el-input-number
-              :presicion="0"
-              :step="1"
-              v-model="model[fields.loanPeriodInDays.name]"
-            />
-          </el-col>
-        </el-form-item>
-
-        <el-form-item
           :label="fields.theme.label"
           :prop="fields.theme.name"
           :required="fields.theme.required"
@@ -90,10 +76,7 @@ import { FormSchema } from '@/shared/form/form-schema';
 import SettingsToolbar from '@/modules/settings/components/settings-toolbar.vue';
 
 const { fields } = SettingsModel;
-const formSchema = new FormSchema([
-  fields.theme,
-  fields.loanPeriodInDays,
-]);
+const formSchema = new FormSchema([fields.theme]);
 
 export default {
   name: 'app-settings-page',

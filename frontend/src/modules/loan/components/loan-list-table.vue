@@ -10,6 +10,10 @@
     >
       <el-table-column type="selection" width="55"></el-table-column>
 
+      <el-table-column :label="fields.id.label" :prop="fields.id.name" sortable="custom">
+        <template slot-scope="scope">{{ presenter(scope.row, 'id') }}</template>
+      </el-table-column>
+
       <el-table-column :label="fields.book.label" :prop="fields.book.name">
         <template slot-scope="scope">
           <app-list-item-relation-to-one
@@ -40,7 +44,11 @@
         <template slot-scope="scope">{{ presenter(scope.row, 'issueDate') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.dueDate.label" :prop="fields.dueDate.name" sortable="custom">
+      <el-table-column
+        :label="fields.dueDate.label"
+        :prop="fields.dueDate.name"
+        sortable="custom"
+      >
         <template slot-scope="scope">{{ presenter(scope.row, 'dueDate') }}</template>
       </el-table-column>
 
@@ -52,10 +60,20 @@
         <template slot-scope="scope">{{ presenter(scope.row, 'returnDate') }}</template>
       </el-table-column>
 
-      <el-table-column :label="fields.status.label" :prop="fields.status.name" sortable="custom">
-        <template slot-scope="scope">
-          <app-loan-status-tag :value="scope.row.status" />
-        </template>
+      <el-table-column
+        :label="fields.status.label"
+        :prop="fields.status.name"
+        sortable="custom"
+      >
+        <template slot-scope="scope">{{ presenter(scope.row, 'status') }}</template>
+      </el-table-column>
+
+      <el-table-column
+        :label="fields.createdAt.label"
+        :prop="fields.createdAt.name"
+        sortable="custom"
+      >
+        <template slot-scope="scope">{{ presenter(scope.row, 'createdAt') }}</template>
       </el-table-column>
 
       <el-table-column :fixed="isMobile? undefined : 'right'" align="center" width="180">
@@ -67,10 +85,7 @@
               </el-button>
             </router-link>
 
-            <router-link
-              :to="`/loan/${scope.row.id}/edit`"
-              v-if="hasPermissionToEdit && scope.row.status !== 'closed'"
-            >
+            <router-link :to="`/loan/${scope.row.id}/edit`" v-if="hasPermissionToEdit">
               <el-button type="text">
                 <app-i18n code="common.edit"></app-i18n>
               </el-button>
@@ -107,16 +122,11 @@ import { LoanModel } from '@/modules/loan/loan-model';
 import { mapGetters, mapActions } from 'vuex';
 import { LoanPermissions } from '@/modules/loan/loan-permissions';
 import { i18n } from '@/i18n';
-import LoanStatusTag from '@/modules/loan/components/loan-status-tag';
 
 const { fields } = LoanModel;
 
 export default {
   name: 'app-loan-list-table',
-
-  components: {
-    [LoanStatusTag.name]: LoanStatusTag,
-  },
 
   mounted() {
     this.doMountTable(this.$refs.table);

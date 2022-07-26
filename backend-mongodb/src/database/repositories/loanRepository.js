@@ -34,7 +34,7 @@ class LoanRepository extends AbstractEntityRepository {
       Loan.updateOne(
         { _id: id },
         {
-          returnDate: data.returnDate,
+          ...data,
           updatedBy: this.getCurrentUser(options).id,
         },
       ),
@@ -49,6 +49,7 @@ class LoanRepository extends AbstractEntityRepository {
     );
 
     const record = await this.findById(id, options);
+    await this.refreshTwoWayRelations(record, options);
     return record;
   }
 
@@ -75,15 +76,19 @@ class LoanRepository extends AbstractEntityRepository {
     );
   }
 
-  async refreshTwoWayRelations(record, options) {}
+  async refreshTwoWayRelations(record, options) {
 
-  async destroyFromRelations(id, options) {}
+  }
+
+  async destroyFromRelations(id, options) {
+
+  }
 
   async findById(id, options) {
     return this.wrapWithSessionIfExists(
       Loan.findById(id)
-        .populate('book')
-        .populate('member'),
+      .populate('book')
+      .populate('member'),
       options,
     );
   }
@@ -111,10 +116,6 @@ class LoanRepository extends AbstractEntityRepository {
     });
 
     if (filter) {
-      if (filter.ids) {
-        query.appendIn('_id', filter.ids);
-      }
-
       if (filter.id) {
         query.appendId('_id', filter.id);
       }
@@ -135,7 +136,10 @@ class LoanRepository extends AbstractEntityRepository {
       }
 
       if (filter.dueDateRange) {
-        query.appendRange('dueDate', filter.dueDateRange);
+        query.appendRange(
+          'dueDate',
+          filter.dueDateRange,
+        );
       }
 
       if (filter.returnDateRange) {
@@ -146,29 +150,7 @@ class LoanRepository extends AbstractEntityRepository {
       }
 
       if (filter.status) {
-        if (filter.status === 'closed') {
-          query.appendCustom({
-            returnDate: { $ne: null },
-          });
-        }
-
-        if (filter.status === 'overdue') {
-          query.appendCustom({
-            returnDate: null,
-            dueDate: {
-              $lt: new Date(),
-            },
-          });
-        }
-
-        if (filter.status === 'inProgress') {
-          query.appendCustom({
-            returnDate: null,
-            dueDate: {
-              $gte: new Date(),
-            },
-          });
-        }
+        query.appendEqual('status', filter.status);
       }
 
       if (filter.createdAtRange) {
@@ -199,6 +181,7 @@ class LoanRepository extends AbstractEntityRepository {
 
     if (search) {
       query.appendId('_id', search);
+
     }
 
     const records = await Loan.find(query.criteria)

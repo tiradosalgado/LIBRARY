@@ -29,6 +29,14 @@ const BookSchema = new Schema(
       type: Number,
     },
     images: [FileSchema],
+    status: {
+      type: String,
+      enum: [
+        "available",
+        "unavailable",
+        null
+      ],
+    },
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: 'user',
@@ -44,14 +52,6 @@ const BookSchema = new Schema(
 
 BookSchema.virtual('id').get(function() {
   return this._id.toHexString();
-});
-
-BookSchema.virtual('status').get(function() {
-  if (Number(this.stock) > 0) {
-    return 'available';
-  }
-
-  return 'unavailable';
 });
 
 BookSchema.set('toJSON', {

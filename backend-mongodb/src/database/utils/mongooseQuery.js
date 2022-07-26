@@ -25,10 +25,6 @@ module.exports = class MongooseQuery {
     return new MongooseQuery(limit, offset, orderBy, true);
   }
 
-  appendCustom(criteria) {
-    this._criteria.push(criteria);
-  }
-
   appendEqual(column, value) {
     this._criteria.push({
       [column]: value,

@@ -7,5 +7,7 @@ export default [
   fields.title,
   fields.author,
   fields.numberOfCopies,
+  fields.stock,
   fields.images,
+  fields.status,
 ];

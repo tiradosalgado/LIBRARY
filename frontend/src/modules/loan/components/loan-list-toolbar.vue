@@ -49,23 +49,6 @@
         </el-button>
       </span>
     </el-tooltip>
-
-    <el-tooltip
-      :content="emailButtonTooltip"
-      :disabled="!emailButtonTooltip"
-      v-if="hasPermissionToEmail"
-    >
-      <span>
-        <el-button
-          :disabled="emailButtonDisabled"
-          @click="doEmailAllSelected"
-          icon="el-icon-fa-envelope"
-          type="primary"
-        >
-          <app-i18n code="entities.loan.emailAll.label"></app-i18n>
-        </el-button>
-      </span>
-    </el-tooltip>
   </div>
 </template>
 
@@ -86,7 +69,6 @@ export default {
       exportLoading: 'loan/list/exportLoading',
       selectedRows: 'loan/list/selectedRows',
       destroyLoading: 'loan/destroy/loading',
-      emailLoading: 'loan/email/loading',
     }),
 
     hasPermissionToAuditLogs() {
@@ -106,11 +88,8 @@ export default {
     },
 
     hasPermissionToDestroy() {
-      return new LoanPermissions(this.currentUser).destroy;
-    },
-
-    hasPermissionToEmail() {
-      return new LoanPermissions(this.currentUser).email;
+      return new LoanPermissions(this.currentUser)
+        .destroy;
     },
 
     exportButtonDisabled() {
@@ -170,54 +149,19 @@ export default {
 
       return null;
     },
-
-    emailButtonDisabled() {
-      return (
-        !this.selectedRows.length ||
-        this.loading ||
-        this.emailLoading
-      );
-    },
-
-    emailButtonTooltip() {
-      if (!this.selectedRows.length || this.loading) {
-        return i18n('common.mustSelectARow');
-      }
-
-      return null;
-    },
   },
 
   methods: {
     ...mapActions({
       doExport: 'loan/list/doExport',
-      doRemoveAllSelected: 'loan/list/doRemoveAllSelected',
+      doRemoveAllSelected:
+        'loan/list/doRemoveAllSelected',
       doDisableAllSelected:
         'loan/list/doDisableAllSelected',
-      doEnableAllSelected: 'loan/list/doEnableAllSelected',
+      doEnableAllSelected:
+        'loan/list/doEnableAllSelected',
       doDestroyAll: 'loan/destroy/doDestroyAll',
-      doEmailAll: 'loan/email/doEmailAll',
     }),
-
-    async doEmailAllSelected() {
-      try {
-        await this.$confirm(
-          i18n('common.areYouSure'),
-          i18n('common.confirm'),
-          {
-            confirmButtonText: i18n('common.yes'),
-            cancelButtonText: i18n('common.no'),
-            type: 'warning',
-          },
-        );
-
-        return this.doEmailAll(
-          this.selectedRows.map((item) => item.id),
-        );
-      } catch (error) {
-        // no
-      }
-    },
 
     async doDestroyAllSelected() {
       try {

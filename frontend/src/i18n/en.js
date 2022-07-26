@@ -23,7 +23,7 @@ const en = {
   },
 
   app: {
-    title: 'Library',
+    title: 'Application',
   },
 
   entities: {
@@ -35,10 +35,6 @@ const en = {
       list: {
         menu: 'Loans',
         title: 'Loans',
-      },
-      emailAll: {
-        label: 'Send Reminder via Email',
-        success: 'Email(s) sent successfully',
       },
       create: {
         success: 'Loan saved successfully',
@@ -57,24 +53,24 @@ const en = {
       },
       fields: {
         id: 'Id',
-        book: 'Book',
-        member: 'Member',
-        issueDateRange: 'Issue Date',
-        issueDate: 'Issue Date',
-        dueDateRange: 'Due Date',
-        dueDate: 'Due Date',
-        returnDateRange: 'Return Date',
-        returnDate: 'Return Date',
-        status: 'Status',
+        'book': 'Book',
+        'member': 'Member',
+        'issueDateRange': 'Issue Date',
+        'issueDate': 'Issue Date',
+        'dueDateRange': 'Due Date',
+        'dueDate': 'Due Date',
+        'returnDateRange': 'Return Date',
+        'returnDate': 'Return Date',
+        'status': 'Status',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
         createdAtRange: 'Created at',
       },
       enumerators: {
-        status: {
-          inProgress: 'In Progress',
-          overdue: 'Overdue',
-          closed: 'Closed',
+        'status': {
+          'inProgress': 'InProgress',
+          'overdue': 'Overdue',
+          'closed': 'Closed',
         },
       },
       new: {
@@ -88,9 +84,6 @@ const en = {
         fileName: 'loan_import_template',
         hint:
           'Files/Images columns must be the URLs of the files separated by space.',
-      },
-      validation: {
-        bookOutOfStock: 'Sorry, this book is out of stock.',
       },
     },
 
@@ -120,23 +113,23 @@ const en = {
       },
       fields: {
         id: 'Id',
-        isbn: 'ISBN',
-        title: 'Title',
-        author: 'Author',
-        numberOfCopiesRange: 'Number Of Copies',
-        numberOfCopies: 'Number Of Copies',
-        stockRange: 'In Stock',
-        stock: 'In Stock',
-        images: 'Images',
-        status: 'Status',
+        'isbn': 'ISBN',
+        'title': 'Title',
+        'author': 'Author',
+        'numberOfCopiesRange': 'Number Of Copies',
+        'numberOfCopies': 'Number Of Copies',
+        'stockRange': 'Stock',
+        'stock': 'Stock',
+        'images': 'Images',
+        'status': 'Status',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
         createdAtRange: 'Created at',
       },
       enumerators: {
-        status: {
-          available: 'Available',
-          unavailable: 'Unavailable',
+        'status': {
+          'available': 'Available',
+          'unavailable': 'Unavailable',
         },
       },
       new: {
@@ -170,7 +163,7 @@ const en = {
     signinWithAnotherAccount:
       'Sign in with another account',
     emailUnverified: {
-      message: `Please confirm your email at <strong>{0}</strong> to continue.`,
+      message: `Please confirm your email at <strong>{0}</strong> to confinue.`,
       submit: `Resend email verification`,
     },
     emptyPermissions: {
@@ -197,19 +190,55 @@ const en = {
   },
 
   roles: {
-    librarian: {
-      label: 'Librarian',
+    owner: {
+      label: 'Owner',
       description: 'Full access to all resources',
     },
-    member: {
-      label: 'Member',
-      description: 'Member access',
+    editor: {
+      label: 'Editor',
+      description: 'Edit access to all resources',
+    },
+    viewer: {
+      label: 'Viewer',
+      description: 'View access to all resources',
+    },
+    auditLogViewer: {
+      label: 'Audit Log Viewer',
+      description: 'Access to view audit logs',
+    },
+    iamSecurityReviewer: {
+      label: 'Security Reviewer',
+      description: `Full access to manage users roles`,
+    },
+    entityEditor: {
+      label: 'Entity Editor',
+      description: 'Edit access to all entities',
+    },
+    entityViewer: {
+      label: 'Entity Viewer',
+      description: 'View access to all entities',
+    },
+    loanEditor: {
+      label: 'Loan Editor',
+      description: 'Edit access to Loans',
+    },
+    loanViewer: {
+      label: 'Loan Viewer',
+      description: 'View access to Loans',
+    },
+    bookEditor: {
+      label: 'Book Editor',
+      description: 'Edit access to Books',
+    },
+    bookViewer: {
+      label: 'Book Viewer',
+      description: 'View access to Books',
     },
   },
 
   iam: {
-    title: 'Users',
-    menu: 'Users',
+    title: 'Identity and Access Management',
+    menu: 'IAM',
     disable: 'Disable',
     disabled: 'Disabled',
     enabled: 'Enabled',
@@ -256,7 +285,7 @@ const en = {
         'User with this email already exists',
       userNotFound: 'User not found',
       disablingHimself: `You can't disable yourself`,
-      revokingOwnPermission: `You can't revoke your own librarian permission`,
+      revokingOwnPermission: `You can't revoke your own owner permission`,
     },
   },
 
@@ -317,7 +346,6 @@ const en = {
     },
     fields: {
       theme: 'Theme',
-      loanPeriodInDays: 'Loan Period (In Days)',
     },
     colors: {
       default: 'Default',
@@ -336,6 +364,33 @@ const en = {
   },
   home: {
     menu: 'Home',
+    message: `This page uses fake data for demonstration purposes only. You can edit it at frontend/src/modules/home/components/home-page.vue.`,
+    charts: {
+      day: 'Day',
+      red: 'Red',
+      green: 'Green',
+      yellow: 'Yellow',
+      grey: 'Grey',
+      blue: 'Blue',
+      orange: 'Orange',
+      months: {
+        1: 'January',
+        2: 'February',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+      },
+      eating: 'Eating',
+      drinking: 'Drinking',
+      sleeping: 'Sleeping',
+      designing: 'Designing',
+      coding: 'Coding',
+      cycling: 'Cycling',
+      running: 'Running',
+      customer: 'Customer',
+    },
   },
   errors: {
     backToHome: 'Back to home',

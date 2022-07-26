@@ -5,7 +5,6 @@ import Errors from '@/shared/error/errors';
 import { routerAsync } from '@/app-module';
 import ProgressBar from '@/shared/progress-bar/progress-bar';
 import { AuthToken } from '@/modules/auth/auth-token';
-import Roles from '@/security/roles';
 
 export default {
   namespaced: true,
@@ -93,11 +92,6 @@ export default {
 
       return getters.currentUser.avatars[0].publicUrl;
     },
-
-    currentUserIsMember: (state, getters) => {
-      const roles = getters.roles;
-      return roles.includes(Roles.values.member) && !roles.includes(Roles.values.librarian);
-    }
   },
 
   mutations: {

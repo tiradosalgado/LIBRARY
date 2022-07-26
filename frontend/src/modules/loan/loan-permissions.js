@@ -7,9 +7,6 @@ export class LoanPermissions {
       currentUser,
     );
 
-    this.email = permissionChecker.match(
-      Permissions.values.loanEmail,
-    );
     this.read = permissionChecker.match(
       Permissions.values.loanRead,
     );

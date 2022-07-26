@@ -33,7 +33,7 @@
       >
         <el-form-item :label="fields.id.label" :prop="fields.id.name" v-if="isEditing">
           <el-col :lg="11" :md="16" :sm="24">
-            <el-input :disabled="true" v-model="model[fields.id.name]" />
+            <el-input :disabled="true" v-model="model[fields.id.name]"/>
           </el-col>
         </el-form-item>
 
@@ -43,7 +43,7 @@
           :required="fields.isbn.required"
         >
           <el-col :lg="11" :md="16" :sm="24">
-            <el-input ref="focus" v-model="model[fields.isbn.name]" />
+            <el-input v-model="model[fields.isbn.name]" ref="focus" />
           </el-col>
         </el-form-item>
 
@@ -73,7 +73,17 @@
           :required="fields.numberOfCopies.required"
         >
           <el-col :lg="11" :md="16" :sm="24">
-            <el-input-number :precision="0" :step="1" v-model="model[fields.numberOfCopies.name]"></el-input-number>
+            <el-input-number :precision="0" :step="1" v-model="model[fields.numberOfCopies.name]" ></el-input-number>
+          </el-col>
+        </el-form-item>
+
+        <el-form-item
+          :label="fields.stock.label"
+          :prop="fields.stock.name"
+          :required="fields.stock.required"
+        >
+          <el-col :lg="11" :md="16" :sm="24">
+            <el-input-number :precision="0" :step="1" v-model="model[fields.stock.name]" ></el-input-number>
           </el-col>
         </el-form-item>
 
@@ -89,6 +99,24 @@
               :schema="fields.images.fileSchema"
               v-model="model[fields.images.name]"
             ></app-image-upload>
+          </el-col>
+        </el-form-item>
+
+        <el-form-item
+          :label="fields.status.label"
+          :prop="fields.status.name"
+          :required="fields.status.required"
+        >
+          <el-col :lg="11" :md="16" :sm="24">
+            <el-select placeholder v-model="model[fields.status.name]">
+              <el-option :value="undefined">--</el-option>
+              <el-option
+                :key="option.id"
+                :label="option.label"
+                :value="option.id"
+                v-for="option in fields.status.options"
+              ></el-option>
+            </el-select>
           </el-col>
         </el-form-item>
 
@@ -125,7 +153,9 @@ const formSchema = new FormSchema([
   fields.title,
   fields.author,
   fields.numberOfCopies,
+  fields.stock,
   fields.images,
+  fields.status,
 ]);
 
 export default {

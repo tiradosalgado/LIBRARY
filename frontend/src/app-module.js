@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import shared from '@/shared/shared-module';
 import auth from '@/modules/auth/auth-module';
 import layout from '@/modules/layout/layout-module';
+import home from '@/modules/home/home-module';
 import iam from '@/modules/iam/iam-module';
 import settings from '@/modules/settings/settings-module';
 import auditLog from '@/modules/audit-log/audit-log-module';
@@ -13,6 +14,7 @@ import book from '@/modules/book/book-module';
 
 const modules = {
   shared,
+  home,
   settings,
   auth,
   iam,
@@ -68,7 +70,6 @@ function setupComponentsFiltersDirectivesAndMixins() {
 }
 
 const routes = [
-  { path: '/', redirect: '/loan' },
   ...Object.keys(modules)
     .filter((key) => !!modules[key].routes)
     .map((key) => modules[key].routes)

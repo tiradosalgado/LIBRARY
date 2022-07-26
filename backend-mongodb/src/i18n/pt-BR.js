@@ -1,25 +1,6 @@
 const ptBR = {
   app: {
-    title: 'Biblioteca',
-  },
-
-  entities: {
-    loan: {
-      validation: {
-        closedLoansSelectedForEmail:
-          'Por favor selecione apenas empréstimos não finalizados.',
-        returnDateRequired:
-          'Data de Retorno é obrigatória.',
-        bookOutOfStock:
-          'Desculpe, o livro está fora de estoque.',
-      },
-    },
-    book: {
-      validation: {
-        bookOutOfStock:
-          'O número de cópias é menor do que o número de copias atuamente emprestadas.',
-      },
-    },
+    title: 'Aplicação',
   },
 
   auth: {
@@ -46,7 +27,7 @@ const ptBR = {
       userAlreadyExists: 'Usuário com este email já existe',
       userNotFound: 'Usuário não encontrado',
       disablingHimself: `Você não pode desativar-se`,
-      revokingOwnPermission: `Você não pode revogar sua própria permissão de bibliotecário`,
+      revokingOwnPermission: `Você não pode revogar sua própria permissão de proprietário`,
     },
   },
 
@@ -69,26 +50,6 @@ const ptBR = {
   },
 
   emails: {
-    loan: {
-      inProgress: {
-        subject: `O livro {0} deve ser retornado em {1} dias`,
-        body: `
-          <p>Olá {3},</p>
-          <p>Este é apenas um lembrete que você deve devolver o livro {1} para a {0} dentro dos próximos {2} dias.</p>
-          <p>Obrigado,</p>
-          <p>Equpe da {0}</p>
-        `,
-      },
-      overdue: {
-        subject: `O retorno do livro {0} está atrasado`,
-        body: `
-          <p>Olá {2},</p>
-          <p>Por favor retorne o livro {1} para a {0} o mais breve possível.</p>
-          <p>Obrigado,</p>
-          <p>Equipe da {0}</p>
-        `,
-      },
-    },
     invitation: {
       subject: `Você foi convidado para o app {0}`,
       body: `

@@ -21,11 +21,14 @@ module.exports = {
     },
   },
 
-  clientUrl: 'http://localhost:8081',
+  graphiql: true,
+
+  clientUrl:
+    '<insert client url here>',
 
   defaultUser: '<insert your email here>',
 
   uploadDir: os.tmpdir(),
 
-  authJwtSecret: '5fda55e7-9000-4c41-9dc0-8fbb094b2202',
+  authJwtSecret: '<place a generated random value here>',
 };

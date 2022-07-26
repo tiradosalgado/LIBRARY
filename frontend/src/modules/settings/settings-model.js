@@ -1,7 +1,6 @@
 import { i18n } from '@/i18n';
 import EnumeratorField from '@/shared/fields/enumerator-field';
 import { GenericModel } from '@/shared/model/generic-model';
-import IntegerField from '@/shared/fields/integer-field';
 
 const themes = [
   {
@@ -67,11 +66,6 @@ const fields = {
     label('theme'),
     themes,
     { required: true },
-  ),
-  loanPeriodInDays: new IntegerField(
-    'loanPeriodInDays',
-    label('loanPeriodInDays'),
-    { required: true, min: 1 },
   ),
 };
 

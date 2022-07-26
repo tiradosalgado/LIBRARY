@@ -1,23 +1,6 @@
 const en = {
   app: {
-    title: 'Library',
-  },
-
-  entities: {
-    loan: {
-      validation: {
-        closedLoansSelectedForEmail:
-          'Please select only non closed loans to send reminders.',
-        returnDateRequired: 'Return Date is required.',
-        bookOutOfStock: 'Sorry, this book is out of stock.',
-      },
-    },
-    book: {
-      validation: {
-        bookOutOfStock:
-          'The number of copies is less than the current copies loaned.',
-      },
-    },
+    title: 'Application',
   },
 
   auth: {
@@ -45,7 +28,7 @@ const en = {
         'User with this email already exists',
       userNotFound: 'User not found',
       disablingHimself: `You can't disable yourself`,
-      revokingOwnPermission: `You can't revoke your own librarian permission`,
+      revokingOwnPermission: `You can't revoke your own owner permission`,
     },
   },
 
@@ -71,26 +54,6 @@ const en = {
   },
 
   emails: {
-    loan: {
-      inProgress: {
-        subject: `The book {0} should be returned in the next {1} days`,
-        body: `
-          <p>Hi {3},</p>
-          <p>This is just a reminder for you to return the book {1} to the {0} in the next {2} days.</p>
-          <p>Thanks,</p>
-          <p>Your {0} team</p>
-        `,
-      },
-      overdue: {
-        subject: `The return of the book {0} is overdue`,
-        body: `
-          <p>Hi {2},</p>
-          <p>Please return the book {1} to the {0} as soon as possible.</p>
-          <p>Thanks,</p>
-          <p>Your {0} team</p>
-        `,
-      },
-    },
     invitation: {
       subject: `You've been invited to {0}`,
       body: `

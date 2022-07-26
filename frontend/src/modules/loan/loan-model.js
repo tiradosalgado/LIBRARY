@@ -18,49 +18,23 @@ function enumeratorLabel(name, value) {
 const fields = {
   id: new IdField('id', label('id')),
   book: BookField.relationToOne('book', label('book'), {
-    required: true,
+    "required": true
   }),
-  member: UserField.relationToOne(
-    'member',
-    label('member'),
-    {
-      required: true,
-    },
-  ),
-  issueDate: new DateTimeField(
-    'issueDate',
-    label('issueDate'),
-    {
-      required: true,
-    },
-  ),
+  member: UserField.relationToOne('member', label('member'), {
+    "required": true
+  }),
+  issueDate: new DateTimeField('issueDate', label('issueDate'), {
+    "required": true
+  }),
   dueDate: new DateTimeField('dueDate', label('dueDate'), {
-    required: true,
+    "required": true
   }),
-  returnDate: new DateTimeField(
-    'returnDate',
-    label('returnDate'),
-    { required: true },
-  ),
-  status: new EnumeratorField(
-    'status',
-    label('status'),
-    [
-      {
-        id: 'inProgress',
-        label: enumeratorLabel('status', 'inProgress'),
-      },
-      {
-        id: 'overdue',
-        label: enumeratorLabel('status', 'overdue'),
-      },
-      {
-        id: 'closed',
-        label: enumeratorLabel('status', 'closed'),
-      },
-    ],
-    {},
-  ),
+  returnDate: new DateTimeField('returnDate', label('returnDate'), {}),
+  status: new EnumeratorField('status', label('status'), [
+    { id: 'inProgress', label: enumeratorLabel('status', 'inProgress') },
+    { id: 'overdue', label: enumeratorLabel('status', 'overdue') },
+    { id: 'closed', label: enumeratorLabel('status', 'closed') },
+  ],{}),
   createdAt: new DateTimeField(
     'createdAt',
     label('createdAt'),

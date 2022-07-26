@@ -23,132 +23,124 @@ const ptBR = {
   },
 
   app: {
-    title: 'Biblioteca',
+    title: 'Aplicação',
   },
 
   entities: {
     loan: {
-      name: 'Empréstimo',
-      label: 'Empréstimos',
-      menu: 'Empréstimos',
-      exporterFileName: 'Empréstimo_exportados',
+      name: 'Loan',
+      label: 'Loans',
+      menu: 'Loans',
+      exporterFileName: 'Loan_exportados',
       list: {
-        menu: 'Empréstimos',
-        title: 'Empréstimos',
-      },
-      emailAll: {
-        label: 'Enviar Lembrete por Email',
-        success: 'Email(s) enviados com sucesso',
+        menu: 'Loans',
+        title: 'Loans',
       },
       create: {
-        success: 'Empréstimo salvo com sucesso',
+        success: 'Loan salvo com sucesso',
       },
       update: {
-        success: 'Empréstimo salvo com sucesso',
+        success: 'Loan salvo com sucesso',
       },
       destroy: {
-        success: 'Empréstimo deletado com sucesso',
+        success: 'Loan deletado com sucesso',
       },
       destroyAll: {
-        success: 'Empréstimo(s) deletado com sucesso',
+        success: 'Loan(s) deletado com sucesso',
       },
       edit: {
-        title: 'Editar Empréstimo',
+        title: 'Editar Loan',
       },
       fields: {
         id: 'Id',
-        book: 'Livro',
-        member: 'Membro',
-        issueDateRange: 'Data de Emissão',
-        issueDate: 'Data de Emissão',
-        dueDateRange: 'Data de Vencimento',
-        dueDate: 'Data de Vencimento',
-        returnDateRange: 'Data de Retorno',
-        returnDate: 'Data de Retorno',
-        status: 'Status',
+        'book': 'Book',
+        'member': 'Member',
+        'issueDateRange': 'Issue Date',
+        'issueDate': 'Issue Date',
+        'dueDateRange': 'Due Date',
+        'dueDate': 'Due Date',
+        'returnDateRange': 'Return Date',
+        'returnDate': 'Return Date',
+        'status': 'Status',
         createdAt: 'Criado em',
         updatedAt: 'Atualizado em',
         createdAtRange: 'Criado em',
       },
       enumerators: {
-        status: {
-          inProgress: 'Em progresso',
-          overdue: 'Atrasado',
-          closed: 'Finalizado',
+        'status': {
+          'inProgress': 'InProgress',
+          'overdue': 'Overdue',
+          'closed': 'Closed',
         },
       },
       new: {
-        title: 'Novo Empréstimo',
+        title: 'Novo Loan',
       },
       view: {
-        title: 'Visualizar Empréstimo',
+        title: 'Visualizar Loan',
       },
       importer: {
-        title: 'Importar Empréstimos',
-        fileName: 'emprestimo_template_importacao',
+        title: 'Importar Loans',
+        fileName: 'loan_template_importacao',
         hint:
           'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
-      },
-      validation: {
-        bookOutOfStock:
-          'Desculpe, este livro está fora de estoque.',
       },
     },
 
     book: {
-      name: 'Livro',
-      label: 'Livros',
-      menu: 'Livros',
-      exporterFileName: 'livro_exportados',
+      name: 'Book',
+      label: 'Books',
+      menu: 'Books',
+      exporterFileName: 'Book_exportados',
       list: {
-        menu: 'Livros',
-        title: 'Livros',
+        menu: 'Books',
+        title: 'Books',
       },
       create: {
-        success: 'Livro salvo com sucesso',
+        success: 'Book salvo com sucesso',
       },
       update: {
-        success: 'Livro salvo com sucesso',
+        success: 'Book salvo com sucesso',
       },
       destroy: {
-        success: 'Livro deletado com sucesso',
+        success: 'Book deletado com sucesso',
       },
       destroyAll: {
-        success: 'Livro(s) deletado com sucesso',
+        success: 'Book(s) deletado com sucesso',
       },
       edit: {
-        title: 'Editar Livro',
+        title: 'Editar Book',
       },
       fields: {
         id: 'Id',
-        isbn: 'ISBN',
-        title: 'Título',
-        author: 'Autor',
-        numberOfCopiesRange: 'Número de Cópias',
-        numberOfCopies: 'Número de Cópias',
-        stockRange: 'Em estoque',
-        stock: 'Em estoque',
-        images: 'Imagens',
-        status: 'Status',
+        'isbn': 'ISBN',
+        'title': 'Title',
+        'author': 'Author',
+        'numberOfCopiesRange': 'Number Of Copies',
+        'numberOfCopies': 'Number Of Copies',
+        'stockRange': 'Stock',
+        'stock': 'Stock',
+        'images': 'Images',
+        'status': 'Status',
         createdAt: 'Criado em',
         updatedAt: 'Atualizado em',
         createdAtRange: 'Criado em',
       },
       enumerators: {
-        status: {
-          available: 'Disponível',
-          unavailable: 'Indisponível',
+        'status': {
+          'available': 'Available',
+          'unavailable': 'Unavailable',
         },
       },
       new: {
-        title: 'Novo Livro',
+        title: 'Novo Book',
       },
       view: {
-        title: 'Visualizar Livro',
+        title: 'Visualizar Book',
       },
       importer: {
-        title: 'Importar Livros',
-        fileName: 'livro_template_importacao',
+        title: 'Importar Books',
+        fileName: 'book_template_importacao',
         hint:
           'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
       },
@@ -196,19 +188,58 @@ const ptBR = {
   },
 
   roles: {
-    librarian: {
-      label: 'Bibliotecário',
+    owner: {
+      label: 'Proprietário',
       description: 'Acesso completo a todos os recursos',
     },
-    member: {
-      label: 'Member',
-      description: 'Acesso de membro',
+    editor: {
+      label: 'Editor',
+      description: 'Acesso para edição a todos os recursos',
+    },
+    viewer: {
+      label: 'Visualizador',
+      description:
+        'Acesso de visualização a todos os recursos',
+    },
+    auditLogViewer: {
+      label: 'Visualizador de Registros de Autoria',
+      description:
+        'Acesso de visualização dos registros de autoria',
+    },
+    iamSecurityReviewer: {
+      label: 'Revisor de segurança',
+      description: `Acesso total para gerenciar as funções do usuário`,
+    },
+    entityEditor: {
+      label: 'Editor de Entidades',
+      description: 'Acesso de edição a todas as entidades',
+    },
+    entityViewer: {
+      label: 'Visualizador de Entidades',
+      description:
+        'Acesso de visualização a todas as entidades',
+    },
+    loanEditor: {
+      label: 'Editor de Loans',
+      description: 'Acesso de edição aos Loans',
+    },
+    loanViewer: {
+      label: 'Visualizador de Loans',
+      description: 'Acesso de visualização aos Loans',
+    },
+    bookEditor: {
+      label: 'Editor de Books',
+      description: 'Acesso de edição aos Books',
+    },
+    bookViewer: {
+      label: 'Visualizador de Books',
+      description: 'Acesso de visualização aos Books',
     },
   },
 
   iam: {
-    title: 'Usuários',
-    menu: 'Usuários',
+    title: 'Gerenciamento de usuários e permissões',
+    menu: 'IAM',
     disable: 'Desabilitar',
     disabled: 'Desabilitado',
     enabled: 'Habilitado',
@@ -256,7 +287,7 @@ const ptBR = {
       userAlreadyExists: 'Usuário com este email já existe',
       userNotFound: 'Usuário não encontrado',
       disablingHimself: `Você não pode desativar-se`,
-      revokingOwnPermission: `Você não pode revogar sua própria permissão de bibliotecário`,
+      revokingOwnPermission: `Você não pode revogar sua própria permissão de proprietário`,
     },
   },
 
@@ -317,7 +348,6 @@ const ptBR = {
     },
     fields: {
       theme: 'Tema',
-      loanPeriodInDays: 'Periodo do Empréstimo (Em Dias)',
     },
     colors: {
       default: 'Padrão',
@@ -336,6 +366,33 @@ const ptBR = {
   },
   home: {
     menu: 'Inicial',
+    message: `Esta página usa dados falsos apenas para fins de demonstração. Você pode editá-la em frontend/src/modules/home/components/home-page.vue.`,
+    charts: {
+      day: 'Dia',
+      red: 'Vermelho',
+      green: 'Verde',
+      yellow: 'Amarelho',
+      grey: 'Cinza',
+      blue: 'Azul',
+      orange: 'Laranja',
+      months: {
+        1: 'Janeiro',
+        2: 'Fevereiro',
+        3: 'Março',
+        4: 'Abril',
+        5: 'Maio',
+        6: 'Junho',
+        7: 'Julho',
+      },
+      eating: 'Comendo',
+      drinking: 'Bebendo',
+      sleeping: 'Dormindo',
+      designing: 'Projetando',
+      coding: 'Codificando',
+      cycling: 'Pedalando',
+      running: 'Correndo',
+      customer: 'Cliente',
+    },
   },
   errors: {
     backToHome: 'Voltar a página inicial',
